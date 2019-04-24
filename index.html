@@ -1,109 +1,39 @@
 ﻿<!DOCTYPE html>
 <html>
-	<head>
-		<link rel="stylesheet" href="styles.css">
-	</head>
-	<body>
-		<div class="contentTop">
-			<div>
-				<h2>Jake Downes</h2>
-				<p>Alan sings lyrical ballads about the New Zealand that we need to remember, the good times and how the bad times can give you the best yarns.
-			</div>
-			<div>
-				<h2>Ana Te Kōtiro</h2>
-				<p>Waiporoporo; The Purple hues of a bruise etched on your psyche, the purple hues of a kiss etched on your psyche.
-			</div>
-			<div>
-				<h2>Anahita Mukherjee</h2>
-				<p>Anahita is a Wellington based songwriter who spends her time making pop music with an ambient, experimental kick.
-			</div>  
-			<div>
-				<h2>Annabel Lee</h2>
-				<p>Ethereal music from the sanctity of teenage bedrooms.
-			</div>
-			<div>
-				<h2>Archie The Brave</h2>
-				<p>Thoughtful lyrics sung with catchy melodies over full bodied synth-pop-rock-dance music.
-			</div>
-			<div>
-				<h2>Aw B (DJ set)</h2>
-				<p>House, disco and techno with the odd shameless banger thrown in.
-			</div>  
-			<div>
-				<h2>Balkany</h2>
-				<p>Brass, vocals, percussion, strings, and squeezebox; music, wine, and good times!
-			</div>
-			<div>
-				<h2>Bamzel (DJ set)</h2>
-				<p>A set filled of old and new disco, techno and house dance floor grooves.
-			</div>
-			<div>
-				<h2>BEING.</h2>
-				<p>Being.’s music leans towards a Melancholy-Surf aesthetic as she jumps from zest-drenched Indie Pop to introspective spoken word.
-			</div>  
-			<div>
-				<h2>Ben Woods</h2>
-				<p>Christchurch based artist whose music exists in a limbo between considered lo-fi sounds and tuneful emotional prose.
-			</div>
-			<div>
-				<h2>Bic Runga</h2>
-				<p>The winner of almost every musical honour in New Zealand.
-			</div>
-			<div>
-				<h2>Big Fat Raro</h2>
-				<p>Tokerau Wilson is a Rarotongan/European multidisciplinary artist, working within improvisational visuals and sound.
-			</div>
-		</div>
-		<h1>Newtown Festival 2019</h1>
-		<div class="contentBottom">
-			<div>
-				<h2>Big Girls</h2>
-				<p>Giant Puppet representatives made by Women of diverse cultures who call NZ Aotearoa home will be out and about at the Fair.	
-			</div>
-			<div>
-				<h2>Blood Bags</h2>
-				<p>Slowed, gruffly crooned and bordering near balladry. Two great platters that are impossible to find stateside.
-			</div>
-			<div>
-				<h2>Brannigan Kaa</h2>
-				<p>Innovative and infectious blues, funk, reggae, pop, R’n’B, big band sounds.
-			</div>  
-			<div>
-				<h2>BTD Bitches</h2>
-				<p>BTD Bitches - Taking it to the streets.
-			</div>
-			<div>
-				<h2>Bulgarian Ensemble Horo</h2>
-				<p>We want to share our culture with the community by introducing people to Bulgarian folk dances.
-			</div>
-			<div>
-				<h2>C-26 Salsa Band</h2>
-				<p>C-26 bring the passion and vibrancy of Colombian-style street Salsa to Kiwi audience. Be prepared to dance.
-			</div>  
-			<div>
-				<h2>Capoeira Angola Wellington</h2>
-				<p>A mix of live music and singing bringing to the present a long historical story of resistance and the fight against an oppressive system.
-			</div>
-			<div>
-				<h2>Céilí Mór with Wellington Irish Sessions</h2>
-				<p>We play Irish traditional music - great for dancing!
-			</div>
-			<div>
-				<h2>Church Of Goya</h2>
-				<p>Church of Goya is a three piece band that sounds like a construction site during a thunderstorm.
-			</div>  
-			<div>
-				<h2>CRYSTAL</h2>
-				<p>Drawing inspiration from what it’s like to be a teenager in this windy city.
-			</div>
-			<div>
-				<h2>D. Tyrone</h2>
-				<p>D. Tyrone is a queer, electronic musician based in Tamaki Makaurau.
-			</div>
-			<div>
-				<h2>D. Tyrone (DJ set)</h2>
-				<p>D. Tyrone is a queer, electronic musician based in Tamaki Makaurau.
-			</div>
-		</div>
-	</body>
+  <body>
+    <canvas id="myCanvas" width="360" height="450" style="border:1px solid #d3d3d3;">
+    </canvas>
+    <script>
+      function deviceOrientationListener(event) {
+        var c = document.getElementById("myCanvas");
+        var ctx = c.getContext("2d");
+
+        ctx.clearRect(0, 0, c.width, c.height);
+        ctx.fillStyle = "#FF7777";
+        ctx.font = "14px Verdana";
+        ctx.fillText("Alpha: " + Math.Round(event.alpha), 10, 20);
+        ctx.beginPath();
+        ctx.moveTo(180, 75);
+        ctx.lineTo(210, 75);
+        ctx.arc(180, 75, 60, 0, event.alpha * Math.PI / 180);
+        ctx.fill();
+
+        ctx.fillStyle = "#FF6600";
+        ctx.fillText("Beta: " + Math.round(event.beta), 10, 140);
+        ctx.beginPath();
+        ctx.fillRect(180, 150, event.beta, 90);
+
+        ctx.fillStyle = "#FF0000";
+        ctx.fillText("Gamma: " + Math.round(event.gamma), 10, 270);
+        ctx.beginPath();
+        ctx.fillRect(90, 340, 180, event.gamma);
+      }
+
+      if (window.DeviceOrientationEvent) {
+        window.addEventListener("deviceorientation", deviceOrientationListener);
+      } else {
+        alert("Sorry, your browser doesn't support Device Orientation");
+      }
+    </script>
+  </body>
 </html>
