@@ -1,0 +1,60 @@
+	html {
+		background: blue;
+	}
+
+	.contentTop {
+  		display: flex;
+  		flex-wrap: wrap-reverse;
+	}
+	.contentTop > div {
+  		width: 60%;
+  		margin: 10px;
+  		text-align: left;
+	}
+	.contentBottom {
+  		display: flex;
+  		flex-wrap: wrap;
+	}
+	.contentBottom > div {
+  		width: 60%;
+  		margin: 10px;
+  		text-align: left;
+	}
+
+	h1 {
+		text-align: left;
+		text-transform: uppercase;
+		color: white;
+		font-size: 500%;
+		font-family: Arial, Verdana, sans-serif;
+	}
+	h2 {
+		text-transform: uppercase;
+		color: white;
+		font-family: Arial, Verdana, sans-serif;
+	}
+	p {
+		text-transform: uppercase;
+		color: white;
+		font-family: Arial, Verdana, sans-serif;
+	}
+
+/* FOR TABLETS & PC */
+@media screen 
+and (min-device-width: 768px) {
+
+	html {
+		background: red;
+	}
+	.contentTop > div {
+  		width: 200px;
+  		margin: 10px;
+	}
+	.contentBottom > div {
+  		width: 200px;
+  		margin: 10px;
+	}
+	h1 {
+		font-size: 750%;
+	}
+}
