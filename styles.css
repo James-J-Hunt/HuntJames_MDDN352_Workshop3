@@ -44,7 +44,7 @@
 and (min-device-width: 768px) {
 
 	html {
-		background: red;
+		background: black;
 	}
 	.contentTop > div {
   		width: 200px;
