@@ -1,8 +1,12 @@
 function init() {
     //Find our div containers in the DOM
-    var compass = document.getElementById('compass');
+    var dataContainerOrientation = document.getElementById('dataContainerOrientation');
+
+    //Check for support for DeviceOrientation event     
     if(window.DeviceOrientationEvent) {
         window.addEventListener('deviceorientation', function(event) {
+
+            //Sets the alpha variable
             var alpha;
             //Check for iOS property
             if(event.webkitCompassHeading) {
@@ -19,10 +23,9 @@ function init() {
                     webkitAlpha = alpha-270;
                 }
             }
-            compass.style.Transform = 'rotate(' + alpha + 'deg)';
-            compass.style.WebkitTransform = 'rotate('+ webkitAlpha + 'deg)';
-            //Rotation is reversed for FF
-            compass.style.MozTransform = 'rotate(-' + alpha + 'deg)'; 
+
+            if(alpha!=null) 
+                dataContainerOrientation.innerHTML = 'alpha: ' + alpha;
         }, false);
     }
 }
