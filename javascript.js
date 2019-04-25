@@ -1,8 +1,7 @@
 function init() {
     var compass = document.getElementById('compass');
-    
-    if(window.DeviceOrientationEvent) {
-  
+        if(window.DeviceOrientationEvent) {
+
         window.addEventListener('deviceorientation', function(event) {
             var alpha;
             //Check for iOS property
@@ -20,11 +19,11 @@ function init() {
                     webkitAlpha = alpha-270;
                 }
             }
- 
+
             compass.style.Transform = 'rotate(' + alpha + 'deg)';
             compass.style.WebkitTransform = 'rotate('+ webkitAlpha + 'deg)';
             //Rotation is reversed for FF
             compass.style.MozTransform = 'rotate(-' + alpha + 'deg)'; 
         }, false);
     }
-}
+} 
